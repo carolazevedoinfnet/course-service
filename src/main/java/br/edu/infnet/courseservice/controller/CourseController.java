@@ -7,6 +7,8 @@ import br.edu.infnet.courseservice.model.Course;
 import br.edu.infnet.courseservice.proxy.CambioProxy;
 import br.edu.infnet.courseservice.repository.CourseRepository;
 import br.edu.infnet.courseservice.response.Cambio;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-
+@Tag(name = "Course endpoint")
 @RestController
 @RequestMapping("course-service")
 public class CourseController {
@@ -29,6 +31,7 @@ public class CourseController {
     @Autowired
     private CambioProxy proxy;
 
+    @Operation(summary = "Find a specific course by your ID")
     @GetMapping(value = "/{id}/{currency}")
     public Course findCourse(
             @PathVariable("id") Long id,
@@ -41,7 +44,7 @@ public class CourseController {
         var cambio = proxy.getCambio(course.getPrice(), "USD", currency);
 
         var port = environment.getProperty("local.server.port");
-        course.setEnvironment(port + " FEIGN");
+        course.setEnvironment("Course port: " + port + "Cambio Port" + cambio.getEnvironment());
         course.setPrice(cambio.getConvertedValue());
         return course;
     }
