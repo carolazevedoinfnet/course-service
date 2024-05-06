@@ -1,7 +1,7 @@
 package br.edu.infnet.courseservice.business;
 
 
-import br.edu.infnet.courseservice.CourseService.CourseService;
+import br.edu.infnet.courseservice.service.CourseService;
 import br.edu.infnet.courseservice.service.stubs.CourseServiceStub;
 import org.junit.jupiter.api.Test;
 

@@ -2,7 +2,7 @@ package br.edu.infnet.courseservice.service.stubs;
 
 
 
-import br.edu.infnet.courseservice.CourseService.CourseService;
+import br.edu.infnet.courseservice.service.CourseService;
 
 import java.util.Arrays;
 import java.util.List;

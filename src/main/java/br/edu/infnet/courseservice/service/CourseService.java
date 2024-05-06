@@ -1,4 +1,4 @@
-package br.edu.infnet.courseservice.CourseService;
+package br.edu.infnet.courseservice.service;
 
 import java.util.List;
 

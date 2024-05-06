@@ -1,6 +1,6 @@
 package br.edu.infnet.courseservice.business;
 
-import br.edu.infnet.courseservice.CourseService.CourseService;
+import br.edu.infnet.courseservice.service.CourseService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
